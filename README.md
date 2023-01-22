@@ -4,7 +4,7 @@ This is a simple Restfull PHP API Backend.
 
 It's build with 11 PHP files.
 
-## It provides :
+## It provides
 
  - Restful PHP Service 
  - Jwt authentication 
@@ -37,3 +37,50 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 ```
 
+## Tree
+
+```bash
+├── public
+│   └── index.php
+├── src
+    ├── Class
+    │   ├── Dotenv.php
+    │   ├── Mariadb.php
+    │   └── Sqlite.php
+    ├── Controller
+    │   ├── AbstractController.php
+    │   ├── AuthController.php
+    │   └── UserController.php
+    ├── Model
+    │   ├── AbstractModel.php
+    │   └── UserModel.php
+    └── Service
+        ├── JwtService.php
+        └── RestService.php
+```
+
+## How to use
+
+### Start
+The easiest way is to start a Docker php7.4-fpm container pointing on public folder.
+
+Just add an admin user using the postman_collection
+
+### Available URL
+
+```php
+src/Controller/AbstractController.php: * @url GET /
+
+src/Controller/UserController.php:     * @url GET /user
+src/Controller/UserController.php:     * @url POST /user
+src/Controller/UserController.php:     * @url PUT /user/$id
+src/Controller/UserController.php:     * @url DELETE /user/$id
+src/Controller/UserController.php:     * @url DELETE /user/reset
+
+src/Controller/AuthController.php:     * @url POST /auth/login
+src/Controller/AuthController.php:     * @url POST /auth/register
+src/Controller/AuthController.php:     * @url POST /auth/logout
+src/Controller/AuthController.php:     * @url POST /auth/requestpass
+src/Controller/AuthController.php:     * @url POST /auth/resetpass
+src/Controller/AuthController.php:     * @url POST /auth/refresh-token
+```

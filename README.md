@@ -1,4 +1,4 @@
-# RESTFUL PHP API Backend
+# RESTFUL PHP API Backend with JWT Authentification
 
 This is a simple Restfull PHP API Backend.
 
@@ -13,7 +13,7 @@ It's build with 11 PHP files.
  - Authentication controller 
  - A simple CRUD User controller for start working with Restful Api
  - Database Object model
- - Full Class / Controller / Service / Model autoload
+ - Full Class / Controller / Model / Service autoload
  - Cache API map
  - PHPDoc reflexion 
  - Dotenv support
@@ -64,6 +64,8 @@ COLLATE=utf8_general_ci;
 ### Start
 The easiest way is to start a Docker php7.4-fpm container pointing on public folder.
 
+You can use this docker stack : https://github.com/xenetis/docker-restful-php-server
+
 Just add an admin user using the postman_collection
 
 ### Available URL
@@ -84,3 +86,34 @@ src/Controller/AuthController.php:     * @url POST /auth/requestpass
 src/Controller/AuthController.php:     * @url POST /auth/resetpass
 src/Controller/AuthController.php:     * @url POST /auth/refresh-token
 ```
+
+### API PHPDoc parameters 
+
+In your action controller you have to provide API PHPDoc parameters.
+
+#### Example for an opened API (Display version Root action from AbstractController)
+````php
+     /**
+     * @url GET /
+     * @noauth
+     */ 
+````
+GET call on / without Authentication
+
+#### Example of POST without authentication (Login action from AuthController)
+````php
+     /**
+     * @url POST /auth/login
+     * @noauth
+     */ 
+````
+POST call on /auth/login without Authentication
+
+#### Example of DELETE a User with admin role (Delete action from UserController)
+````php
+     /**
+     * @url DELETE /user/$id
+     * @isadmin
+     */ 
+````
+DELETE call on /user/{user_id} without Authentication

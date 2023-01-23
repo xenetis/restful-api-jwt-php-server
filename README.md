@@ -21,6 +21,10 @@ It's build with 11 PHP files.
  - Sqlite PDO support
  - Postman test collection
 
+## .env file
+
+Copy the **.env.example** to **.env** file and update what you need
+
 ## Database
 
 ```sql

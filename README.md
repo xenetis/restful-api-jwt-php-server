@@ -28,7 +28,7 @@ Copy the **.env.example** to **.env** file and update what you need
 ## Database
 
 ```sql
-CREATE TABLE scan.`user` (
+CREATE TABLE restfulexample.`user` (
     id bigint(20) auto_increment NOT NULL,
     email varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
